@@ -51,8 +51,9 @@ const styles = {
 
 function App(props) {
   const { classes } = props
+  console.log("This is the process.env", process.env.PUBLIC_URL)
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className={classes.appmain}>
         <div className={classes.appbar}>
           <Link to="/" >
@@ -67,7 +68,6 @@ function App(props) {
           <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/s" component={CompareYourself} />
-            <Route component={NoMatch} />
           </Switch>
         </div>
       </div>
@@ -80,16 +80,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     <Component {...props} />
   )} /> 
 )
-
-function NoMatch({ location }) {
-  return (
-    <div>
-      <h3>
-        404: No match for <code>{location.pathname}</code>
-      </h3>
-    </div>
-  );
-}
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,

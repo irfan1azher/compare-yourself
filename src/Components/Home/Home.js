@@ -27,7 +27,7 @@ const styles = (theme) => ({
     padding: '0 10px 20px 10px',
     // background: 'lightblue',
     borderRadius: 20,
-    overflow: 'scroll',
+    // overflow: 'scroll',
   },
   img: {
     display: 'block',
