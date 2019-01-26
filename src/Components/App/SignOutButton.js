@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify';
 const styles = {
   button: {
     position: 'absolute',
-    top: 15,
+    top: 6,
     right: 20
   }
 };

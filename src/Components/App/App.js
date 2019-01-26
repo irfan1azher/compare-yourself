@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { SvgIcon, IconButton} from '@material-ui/core';
 import Amplify from 'aws-amplify';
 import Home from '../Home/Home';
+import RedRocket from './RedRocket';
 import CompareYourself from '../CY/CompareYourself';
 import aws_exports from '../../aws-exports';
 
@@ -37,10 +38,10 @@ const styles = {
     boxSizing: 'border-box',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    height: 'auto',
+    height: '40px',
     width: '100%',
     background: '#ddd',
-    padding: '5px 10px',
+    padding: '0 6px',
   },
   home: {
     display: 'block',
@@ -48,6 +49,21 @@ const styles = {
     textDecoration: 'none',
     underline: 'none',
   },
+  rocketLink: {
+    width: 40,
+    height: 40,
+    position: 'absolute',
+    bottom: '5vmin',
+    right: '5vmin',
+    transitionDuration: '200ms',
+    userSelect: 'none',
+    '&:hover': {
+      transform: 'rotate(-15deg)',      
+    },
+    '&:active': {
+      transform: 'scale(1.05)',
+    }
+  }
 };
 
 function App(props) {
@@ -59,7 +75,7 @@ function App(props) {
         <div className={classes.appbar}>
           <Link to="/" >
             <IconButton color="default" className={classes.home} aria-label="Go Home">
-              <SvgIcon>
+              <SvgIcon fontSize='large'>
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
               </SvgIcon>
             </IconButton>
@@ -70,6 +86,11 @@ function App(props) {
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/s" component={CompareYourself} />
           </Switch>
+        </div>
+        <div className={classes.rocketLink}>
+          <a href="https://callumgrayson.github.io" >
+            <RedRocket className={classes.rocketIcon}/>
+          </a>
         </div>
       </div>
     </Router>
